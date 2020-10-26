@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html class="no-js">
+<!--Ejercicio 5: Escribir un programa en el cual se ingresen cuatro números, calcular e informar la 
+    suma de los dos primeros y el producto del tercero y el cuarto.-->
+
+<head>
+    <meta charsert="utf-8" />
+    <title></title>
+    <script type="text/javascript"></script>
+</head>
+
+<body>
+
+    <button onclick="sumar()">click</button>
+    <script>
+        function sumar() {
+            let numero1 = window.prompt('Ingrese Número a Sumar: ');
+            let numero2 = window.prompt('Más : ');
+            let numero3 = window.prompt('Ingrese Número a Multiplicar: ');
+            let numero4 = window.prompt('Por: ');
+            let resultSum = Number(numero1) + Number(numero2);
+            let resultMult = numero3 * numero4;
+            document.write('<b>Resultado Suma: <b>' + resultSum);
+            document.write('<br>');
+            document.write('<b>Resultado Multiplicación: <b>' + resultMult);
+        }
+
+    </script>
+</body>
+
+</html>

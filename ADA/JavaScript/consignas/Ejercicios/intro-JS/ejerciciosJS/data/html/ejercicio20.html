@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html class="no-js" lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <!--  1) Obtener lista de provincias de la api de Argentina en formato json():
+                https://infra.datos.gob.ar/catalog/modernizacion/dataset/7/distribution/7.2/download/provincias.json
+                // se puede  descargar y pegar directamente.                  
+                2) Armar un formulario que contenga: Nombre, Apellido, Provincia,Localidad, Edad.
+                3)Las provincias deben estar precargas al cargar la pagina. Las provincias deben estar en un select 
+                donde el se deben visualizar pero el valor debe ser su id.
+                4) El Formulario debe contener un boton para agregar Nuevo Cliente
+                5) La lista de nuevos clientes se debe mostrar en una tabla que se debe actualizar cada vez que 
+                se agregue un cliente nuevo.
+                6) La tabla debe permitir a traves de un boton ordenar los clientes por edad
+                7) La tabla debe permitir a traves de un boton ordenar los clientes por provincia
+                8) El nombre y id de la provincia se debe guardar en el array de nuevos clientes
+                9) mostrar total de clientes debajo de la tabla.  
+        -->
+
+</head>
+
+<body onload="llenarSelect();">
+    <section class="container col-md-10">
+        <form class="container col-md-8 bg-light p-3">
+            <h2 class="text-center text-secondary m-2 p-2"
+                style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Formulario
+                Provincias<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-ui-checks-grid ml-3"
+                    fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M2 10a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1H2zm9-9a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1h-3zm0 9a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1h-3zm0-10a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h3a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2h-3zM2 9a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h3a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H2zm7 2a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-3a2 2 0 0 1-2-2v-3zM0 2a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm5.354.854l-2 2a.5.5 0 0 1-.708 0l-1-1a.5.5 0 1 1 .708-.708L3 3.793l1.646-1.647a.5.5 0 1 1 .708.708z" />
+                </svg></h2>
+            <div class="form-row mt-5">
+                <div class="form-group col-md-4 text-muted">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" class="form-control" id="nombre">
+                </div>
+                <div class="form-group col-md-4 text-muted">
+                    <label for="apellido">Apellido</label>
+                    <input type="text" class="form-control" id="apellido">
+                </div>
+                <div class="form-group col-md-3 text-muted">
+                    <label for="edad">Edad</label>
+                    <input type="number" class="form-control" id="edad">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4 text-muted">
+                    <label for="inputState">Provincia</label>
+                    <select id="opciones" class="form-control text-muted">
+                        <option selected value=""></option>
+                    </select>
+                </div>
+                <div class="form-group col-md-4 text-muted">
+                    <label for="localidad">Localidad</label>
+                    <input type="text" class="form-control" id="localidad">
+                </div>
+            </div>
+            <button onclick="agregarCliente()" class="btn btn-info col-md-2 mt-4 mb-4 p-2">Agregar Cliente</button>
+        </form>
+    </section>
+    <table onclick="agregarCliente()" id="tabla" class="table table-striped">
+        <thead>
+
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+
+    <script>
+
+        var listaProv =
+        {
+            "provincias": [
+                {
+                    "nombre_completo": "Provincia de Misiones", "fuente": "IGN", "iso_id": "AR-N",
+                    "nombre": "Elegir", "id": "...", "categoria": "Provincia", "iso_nombre": "Misiones",
+                    "centroide": { "lat": -26.8753965086829, "lon": -54.6516966230371 }
+                },
+                {
+                    "nombre_completo": "Provincia de Misiones", "fuente": "IGN", "iso_id": "AR-N",
+                    "nombre": "Misiones", "id": "54", "categoria": "Provincia", "iso_nombre": "Misiones",
+                    "centroide": { "lat": -26.8753965086829, "lon": -54.6516966230371 }
+                },
+                {
+                    "nombre_completo": "Provincia de San Luis", "fuente": "IGN", "iso_id": "AR-D",
+                    "nombre": "San Luis", "id": "74", "categoria": "Provincia", "iso_nombre": "San Luis",
+                    "centroide": { "lat": -33.7577257449137, "lon": -66.0281298195836 }
+                },
+                {
+                    "nombre_completo": "Provincia de San Juan", "fuente": "IGN", "iso_id": "AR-J",
+                    "nombre": "San Juan", "id": "70", "categoria": "Provincia", "iso_nombre": "San Juan",
+                    "centroide": { "lat": -30.8653679979618, "lon": -68.8894908486844 }
+                },
+                {
+                    "nombre_completo": "Provincia de Entre Ríos", "fuente": "IGN", "iso_id": "AR-E",
+                    "nombre": "Entre Ríos", "id": "30", "categoria": "Provincia", "iso_nombre": "Entre Ríos",
+                    "centroide": { "lat": -32.0588735436448, "lon": -59.2014475514635 }
+                },
+                {
+                    "nombre_completo": "Provincia de Santa Cruz", "fuente": "IGN", "iso_id": "AR-Z",
+                    "nombre": "Santa Cruz", "id": "78", "categoria": "Provincia", "iso_nombre": "Santa Cruz",
+                    "centroide": { "lat": -48.8154851827063, "lon": -69.9557621671973 }
+                },
+                {
+                    "nombre_completo": "Provincia de Río Negro", "fuente": "IGN", "iso_id": "AR-R",
+                    "nombre": "Río Negro", "id": "62", "categoria": "Provincia", "iso_nombre": "Río Negro",
+                    "centroide": { "lat": -40.4057957178801, "lon": -67.229329893694 }
+                },
+                {
+                    "nombre_completo": "Provincia del Chubut", "fuente": "IGN", "iso_id": "AR-U",
+                    "nombre": "Chubut", "id": "26", "categoria": "Provincia", "iso_nombre": "Chubut",
+                    "centroide": { "lat": -43.7886233529878, "lon": -68.5267593943345 }
+                },
+                {
+                    "nombre_completo": "Provincia de Córdoba", "fuente": "IGN", "iso_id": "AR-X",
+                    "nombre": "Córdoba", "id": "14", "categoria": "Provincia", "iso_nombre": "Córdoba",
+                    "centroide": { "lat": -32.142932663607, "lon": -63.8017532741662 }
+                },
+                {
+                    "nombre_completo": "Provincia de Mendoza", "fuente": "IGN", "iso_id": "AR-M",
+                    "nombre": "Mendoza", "id": "50", "categoria": "Provincia", "iso_nombre": "Mendoza",
+                    "centroide": { "lat": -34.6298873058957, "lon": -68.5831228183798 }
+                },
+                {
+                    "nombre_completo": "Provincia de La Rioja", "fuente": "IGN", "iso_id": "AR-F",
+                    "nombre": "La Rioja", "id": "46", "categoria": "Provincia", "iso_nombre": "La Rioja",
+                    "centroide": { "lat": -29.685776298315, "lon": -67.1817359694432 }
+                },
+                {
+                    "nombre_completo": "Provincia de Catamarca", "fuente": "IGN", "iso_id": "AR-K",
+                    "nombre": "Catamarca", "id": "10", "categoria": "Provincia", "iso_nombre": "Catamarca",
+                    "centroide": { "lat": -27.3358332810217, "lon": -66.9476824299928 }
+                },
+                {
+                    "nombre_completo": "Provincia de La Pampa", "fuente": "IGN", "iso_id": "AR-L",
+                    "nombre": "La Pampa", "id": "42", "categoria": "Provincia", "iso_nombre": "La Pampa",
+                    "centroide": { "lat": -37.1315537735949, "lon": -65.4466546606951 }
+                },
+                {
+                    "nombre_completo": "Provincia de Santiago del Estero", "fuente": "IGN", "iso_id": "AR-G",
+                    "nombre": "Santiago del Estero", "id": "86", "categoria": "Provincia", "iso_nombre": "Santiago del Estero",
+                    "centroide": { "lat": -27.7824116550944, "lon": -63.2523866568588 }
+                },
+                {
+                    "nombre_completo": "Provincia de Corrientes", "fuente": "IGN", "iso_id": "AR-W",
+                    "nombre": "Corrientes", "id": "18", "categoria": "Provincia", "iso_nombre": "Corrientes",
+                    "centroide": { "lat": -28.7743047046407, "lon": -57.8012191977913 }
+                },
+                {
+                    "nombre_completo": "Provincia de Santa Fe", "fuente": "IGN", "iso_id": "AR-S",
+                    "nombre": "Santa Fe", "id": "82", "categoria": "Provincia", "iso_nombre": "Santa Fe",
+                    "centroide": { "lat": -30.7069271588117, "lon": -60.9498369430241 }
+                },
+                {
+                    "nombre_completo": "Provincia de Tucumán", "fuente": "IGN", "iso_id": "AR-T",
+                    "nombre": "Tucumán", "id": "90", "categoria": "Provincia", "iso_nombre": "Tucumán",
+                    "centroide": { "lat": -26.9478001830786, "lon": -65.3647579441481 }
+                },
+                {
+                    "nombre_completo": "Provincia del Neuquén", "fuente": "IGN", "iso_id": "AR-Q",
+                    "nombre": "Neuquén", "id": "58", "categoria": "Provincia", "iso_nombre": "Neuquén",
+                    "centroide": { "lat": -38.6417575824599, "lon": -70.1185705180601 }
+                },
+                {
+                    "nombre_completo": "Provincia de Salta", "fuente": "IGN", "iso_id": "AR-A",
+                    "nombre": "Salta", "id": "66", "categoria": "Provincia", "iso_nombre": "Salta",
+                    "centroide": { "lat": -24.2991344492002, "lon": -64.8144629600627 }
+                },
+                {
+                    "nombre_completo": "Provincia del Chaco", "fuente": "IGN", "iso_id": "AR-H",
+                    "nombre": "Chaco", "id": "22", "categoria": "Provincia", "iso_nombre": "Chaco",
+                    "centroide": { "lat": -26.3864309061226, "lon": -60.7658307438603 }
+                },
+                {
+                    "nombre_completo": "Provincia de Formosa", "fuente": "IGN", "iso_id": "AR-P",
+                    "nombre": "Formosa", "id": "34", "categoria": "Provincia", "iso_nombre": "Formosa",
+                    "centroide": { "lat": -24.894972594871, "lon": -59.9324405800872 }
+                },
+                {
+                    "nombre_completo": "Provincia de Jujuy", "fuente": "IGN", "iso_id": "AR-Y",
+                    "nombre": "Jujuy", "id": "38", "categoria": "Provincia", "iso_nombre": "Jujuy",
+                    "centroide": { "lat": -23.3200784211351, "lon": -65.7642522180337 }
+                },
+                {
+                    "nombre_completo": "Ciudad Autónoma de Buenos Aires", "fuente": "IGN", "iso_id": "AR-C",
+                    "nombre": "Ciudad Autónoma de Buenos Aires", "id": "02", "categoria": "Ciudad Autónoma", "iso_nombre": "Ciudad Autónoma de Buenos Aires",
+                    "centroide": { "lat": -34.6144934119689, "lon": -58.4458563545429 }
+                },
+                {
+                    "nombre_completo": "Provincia de Buenos Aires", "fuente": "IGN", "iso_id": "AR-B",
+                    "nombre": "Buenos Aires", "id": "06", "categoria": "Provincia", "iso_nombre": "Buenos Aires",
+                    "centroide": { "lat": -36.6769415180527, "lon": -60.5588319815719 }
+                },
+                {
+                    "nombre_completo": "Provincia de Tierra del Fuego, Antártida e Islas del Atlántico Sur", "fuente": "IGN", "iso_id": "AR-V",
+                    "nombre": "Tierra del Fuego, Antártida e Islas del Atlántico Sur", "id": "94", "categoria": "Provincia", "iso_nombre": "Tierra del Fuego",
+                    "centroide": { "lat": -82.52151781221, "lon": -50.7427486049785 }
+                }],
+            "total": 24, "cantidad": 24, "parametros": {}, "inicio": 0
+        }
+
+        function obtenerDatos() {
+            var datosNecesarios = [];
+            listaProv.provincias.forEach(provincia => {
+                datosNecesarios.push({ "Nombre": provincia.nombre, "ID": provincia.id });
+            });
+            return datosNecesarios;
+        }
+
+        function llenarSelect() {
+            var datosNecesarios = obtenerDatos();
+            var datosSelect = [];
+            datosNecesarios.forEach(item => {
+                datosSelect = datosSelect + '<option>' + item.Nombre + ' ' + item.ID + '</option>';
+            })
+            document.getElementById('opciones').innerHTML = datosSelect;
+            console.log(datosSelect);
+        }
+
+        var nuevoCliente = { "nuevos": [] };// array de objetos de info ingresada
+
+        function agregarCliente() {
+            var nombreCliente = document.getElementById('nombre').value;
+            var apellidoCliente = document.getElementById('apellido').value;
+            var edadCliente = document.getElementById('edad').value;
+            var provinciaCliente = document.getElementById('opciones').value;
+            var localidadCliente = document.getElementById('localidad').value;
+
+            if (!nuevoCliente.nuevos.includes(nombreCliente && apellidoCliente)) {
+                nuevoCliente.nuevos.push({ "Nombre": nombreCliente, "Apellido": apellidoCliente, "Edad": edadCliente, "Provincia": provinciaCliente, "Localidad": localidadCliente });
+                console.log(nuevoCliente);
+                llenarTabla();
+            }
+            else {
+                alert("Cliente ya existe en al lista. Agregue otro")
+            }
+        }
+
+        function llenarTabla() {
+            var datosTabla = [];
+            datosTabla = datosTabla + '<tr>' + '<th>' + 'Nombre' + '</th>' + '<th>' + 'Apellido' + '</th>' + '<th>' + 'Edad' + '</th>' + '<th>' + 'Provincia' + '</th>' + '<th>' + 'Localidad' + '</th>' + '</tr>';
+            nuevoCliente.nuevos.forEach(item => {
+                datosTabla = datosTabla + '<tr>' + '<td>' + item.Nombre + '</td>' + '<td>' + item.Apellido + '</td>' + '<td>' + item.Edad + '</td>' + '<td>' + item.Provincia + '</td>' + '<td>' + item.Localidad + '</td>' + '</tr>';
+            })
+            document.getElementById('tabla').innerHTML = datosTabla;
+            console.log(datosTabla);
+        }
+
+
+
+
+
+
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

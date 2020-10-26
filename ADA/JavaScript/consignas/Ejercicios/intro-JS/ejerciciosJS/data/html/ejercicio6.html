@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html class="no-js">
+<!--Ejercicio 6: Se ingresan tres notas de un alumno, si el promedio es mayor o igual 
+        a siete mostrar el mensaje ‘Promocionado’ (en caso de no superarlo, mostrar mensaje de "No Promocionado"). 
+        Tener en cuenta que para obtener el promedio debemos operar suma=nota1+nota2+nota3;
+        y luego hacer promedio=suma/3; -->
+
+<head>
+    <meta charsert="utf-8" />
+    <title></title>
+    <script type="text/javascript"></script>
+</head>
+
+<body>
+
+    <button onclick="promedioAlumno()">click</button>
+    <script>
+        function promedioAlumno() {
+            let nota1 = window.prompt('Primera nota: ');
+            let nota2 = window.prompt('Segunda Nota: ');
+            let nota3 = window.prompt('Tercera Nota: ');
+            let sumaPromedio = Number(nota1) + Number(nota2) + Number(nota3);
+            let promedioFinal = sumaPromedio / 3;
+
+
+            if (sumaPromedio >= 7) {
+                document.write('Promocionado!');
+            }
+
+            else {
+                document.write('No Promocionado');
+            }
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html class="no-js" lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- 
+        Escribe un programa  que almacene en un arreglo de registros las características de 150 personas: 
+        nombre, sexo, edad, peso, color de pelo, color de piel, color de ojos, nacionalidad y teléfono.
+    -->
+</head>
+
+<body>
+    <button onclick="guardarDatosDePersonas()">Persona Nueva</button>
+    <p id="listadoPersonas"></p>
+    <script>
+
+        var mostrarPersonas = []; //array vacio al que se le van a poner datos nuevos con el prompt
+
+        function guardarDatosDePersonas() {
+            for (let i = 1; i <= 1; i++) { //recorre el array e ingresa los datos pedidos
+                let agregarPersona = [
+                    { nombre: prompt('Ingrese su Nombre: '), sexo: prompt('Ingrese su Sexo: '), edad: prompt('Ingrese su Edad: '), peso: prompt('Ingrese su Peso: '), colorPelo: prompt('Ingrese su Color de Cabello: '), colorPiel: prompt('Ingrese su Color de Piel: '), colorOjos: prompt('Ingrese su Color de Ojos: '), nacionalidad: prompt('Ingrese su Nacionalidad: '), telefono: prompt('Ingrese su Telefono: ') },
+                ]
+                mostrarPersonas.push(agregarPersona); //manda los datos al array vacio
+
+                console.log(mostrarPersonas)
+            }
+
+
+
+            /* function ordenarLista() {
+                 var listaOrdenadaPersonas = [];
+                 ordenar = mostrarPersonas
+                 ordenar.forEach((item) => {
+                     listaOrdenadaPersonas = listaOrdenadaPersonas + '<li>' + item + '</li>';
+                     console.log(listaOrdenadaPersonas)
+                 });
+                 var listaFinal = (document.getElementById('listadoPersonas').innerHTML = listaOrdenadaPersonas);
+             }*/
+        }
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

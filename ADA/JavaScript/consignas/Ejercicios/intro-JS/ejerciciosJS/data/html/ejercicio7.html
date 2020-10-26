@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html class="no-js">
+<!--Ejercicio 7: Un usuario debe ingresar su nombre de usuario y ademas su clave(2 veces).
+      Mostrar un mensaje si los datos son correctos y las claves son iguales.
+      Se debe validar el tipo de dato ingresado en su nombre. 
+      Se debe validar que el nombre de usuario no puede ser menor a 4 caracteres ni mayor a 8 caracteres. 
+      Se debe validar que ambas claves sean iguales.
+ -->
+
+<head>
+    <meta charsert="utf-8" />
+    <title></title>
+    <script type="text/javascript"></script>
+</head>
+
+<body>
+
+    <button onclick="datosUsuario()">click</button>
+    <script>
+        function datosUsuario() {
+            let nombreUsuario = window.prompt('Escriba su Nombre de Usuario: ');
+            let clave = window.prompt('Escriba su Clave de 4 a 8 caracteres: ');
+            let confirmacionClave = window.prompt('Escriba la Clave nuevamente: ');
+
+            if (typeof nombreUsuario == String && nombreUsuario.length > 4 || nombreUsuario.length <= 8 && clave == confirmacionClave) {
+                document.write('Los datos son correctos.');
+            }
+
+            else {
+                alert("Datos No Validos");
+                let nombreUsuario = window.prompt('Escriba su Nombre de Usuario: ');
+                let clave = window.prompt('Escriba su Clave de 4 a 8 caracteres: ');
+                let confirmacionClave = window.prompt('Escriba la Clave nuevamente: ');
+            }
+
+        }
+
+    </script>
+</body>
+
+</html>

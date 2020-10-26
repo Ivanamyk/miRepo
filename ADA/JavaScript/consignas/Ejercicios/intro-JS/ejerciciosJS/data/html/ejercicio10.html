@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html class="no-js" lang="es">
+
+<!-- 
+          Dado el objeto tendremos que crear un sitio web 
+          con 6 cards con imagenes diferentes y se veran en filas de 2. 
+          Cada fila de cards deberá contar con 1 efecto de sombra
+          Cada fila de cards deberá tener al menos un efecto extra diferente.
+          Modificar el objeto con imagenes y textos alternativos.
+        -->
+
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+</head>
+<style>
+    .blur {
+        filter: blur(3px);
+    }
+
+    .sepia {
+        filter: sepia(100%);
+    }
+
+    .grayscale {
+        filter: grayscale(100%);
+    }
+</style>
+
+<body>
+    <button onclick="mostrarCard();">Click</button>
+    <section id="cardDetalle" class="row">
+    </section>
+
+    <script>
+        function mostrarCard() {
+            let objeto = {
+                1: ["Card 1", "Detalle 1", "ARUBA.jpg", "blur"],
+                2: ["Card 2", "Detalle 2", "animalitos.jpg", "blur"],
+                3: ["Card 3", "Detalle 3", "flores.jpeg", "sepia"],
+                4: ["Card 4", "Detalle 1", "jugo.jpeg", "sepia"],
+                5: ["Card 5", "Detalle 2", "hombre.jpeg", "grayscale"],
+                6: ["Card 6", "Detalle 3", "guitarra.jpeg", "grayscale"],
+                //     col 0         col 1         col 2       col  3
+                //filas<p class="card-text">` + value[0] + `</p>
+            };
+            let cards = "";
+            /// recuerden que  key--> 1 (elemento del objeto):  y   value(nuestro array de datos) --> ["Producto 1", "Detalle 1", "$300"] 
+            Object.entries(objeto).forEach(([key, value]) => {
+                //console.log(key + " " + value); // 1 ....["Producto 1", "Detalle 1", "$300"]
+                // value  //    0           1           2  //
+
+                cards =
+                    cards +
+                    `<div class="col-6">
+            <div class="card shadow ` + value[3] + `" style="width: 18rem;">
+                <img src="`+ value[2] + `" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <p class="card-text">` + value[0] + `</p>
+                    <p class="card-text">` + value[1] + `</p>
+                </div>
+            </div>
+        </div>`;
+                console.log(cards);
+            });
+            console.log(cards); // mostramos en la consola nuestra variable para ver si esta bien lo que hicimos.
+            cambiarContenido("cardDetalle", cards); //aca llamo a otra funcion
+        }
+        /**
+         * funcion para Cambiar contenido
+         */
+        function cambiarContenido(elemento, contenido) {
+            var data = (document.getElementById(elemento).innerHTML = contenido);
+        }
+
+
+
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
