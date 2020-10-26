@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<!--
+    para llamar el archivo json de manera local: json-server + nombre-archivo.json
+
+            ENDPoINT https://www.themealdb.com/api/json/v1/1/random.php
+            obtener de endpoint :
+            id
+            titulo
+            categoria
+            area
+            instrucciones
+            la imagen
+            tags 
+            video
+            guardar en un objeto            
+        -->
+
+<body>
+    <script>
+
+        //para que funcione siempre tengo que llamar al JSON primero y despues probar con la funcion de abajo
+        function getDataRecipe() {
+            fetch("https://www.themealdb.com/api/json/v1/1/random.php", {
+                method: "get"
+            })
+                .then(response => response.json())
+                .then(
+                    json => myDataRecipe(json)
+                )
+                .catch(function (err) {
+                });
+
+            function myDataRecipe(data) {
+                datos = {
+                    'id': data.meals[0].idMeal,
+                    'area': data.meals[0].strArea,
+                    'categoria': data.meals[0].strCategory,
+                    'instrucciones': data.meals[0].strInstructions,
+                    'imagen': data.meals[0].strMealThumb,
+                    'video': data.meals[0].strYoutube,
+                    'receta': data.meals[0].strMeal,
+                    'tags': data.meals[0].strTags
+                }
+                console.log(datos);
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head class="no-js" lang="es">
+  <meta charset="utf-8" />
+
+  <title></title>
+</head>
+
+<body>
+  <script>
+    //operadores aritmetricos
+    var suma = 2 + 2;
+    var miedad = 38;
+    var laedaddeotro = 22;
+    var resultado_de_edades = miedad + laedaddeotro;
+    console.log("resultado: " + suma);
+    console.log("resultado suma de edad: " + resultado_de_edades);
+    console.log("resultado suma de edad: " + (miedad + laedaddeotro));
+    //
+    var resultado2 = suma >= miedad;
+    console.log("resultado2: " + resultado2);
+
+    var resultado3 = resultado2 == false && miedad === 38;
+    console.log("resultado3: " + resultado3);
+
+    var resultado4 = resultado2 == false || miedad === 38;
+    console.log("resultado4: " + resultado4);
+
+    console.log("resultado4 de tipo: " + typeof resultado4);
+    console.log("resultado4 miedad de tipo: " + typeof miedad);
+    var nombre = "ivana";
+    console.log("resultado miedad de tipo: " + typeof nombre)
+    var apellido = "yegros kubicka"
+
+    var nombrecompleto = nombre + " " + apellido;
+    console.log("resultado mi nombre completo: " + nombrecompleto);
+
+    //toUpperCase()
+    console.log(
+      "resultado mi nombre completo: " + nombrecompleto.toUpperCase()
+    );
+
+    //toLowerCase()
+    console.log(
+      "resultado mi nombre completo: " + nombrecompleto.toLowerCase()
+    );
+
+    //Lenght() - para saber cuantos caracteres en String
+    console.log(
+      "resultado cantidad de caracteres de nombre completo: " + nombrecompleto.length
+    );
+
+    // CharAt() - obtener letra especifica de mi String
+    console.log(
+      "resultado obtener letra especifica de de nombre completo: " + nombrecompleto.charAt(13)
+    );
+
+    //fromCharCode() - te trae varios caracteres (no funciona bien)
+    console.log(
+      "resultado obtener letras de de nombre completo: " + nombrecompleto
+    );
+
+    //Replace()
+    console.log(
+      "resultado reemplazar letra de de nombre completo: " + nombrecompleto.replace("yegros", "y.")
+    );
+
+    //Repeat() - solo acepta numeros enteros
+    console.log(
+      "resultado repetir algo de de nombre completo: " + nombre.repeat(2)
+    );
+
+    //Match() - match con expresion regular
+    cadena = "para mas informacion, ver Capitulo 3.4.5.1";
+    expresion = /(capitulo \d+(\.\d)*)/i;
+    hallado = cadena.match(expresion);
+    console.log(hallado[0]);
+    //resultado esperado: Capitulo 3.4.5.1
+
+    //Substr(inicio [, longitu]) - trae caracteres de lo que queramos (te trae hasta cierta posicion que se especifique - de la 0 a la 3, en mi ejemplo)
+    console.log("resultado de substring de nombre: " + nombre.substr(0, 3));
+
+    //Split([separador] [,limite]) 
+    var spliteado = nombrecompleto.split(" ")
+    console.log("resultado de split de nombre completo: " + nombrecompleto + spliteado);
+    var minombre = spliteado[0];
+    var apellidouno = spliteado[1];
+    var apellidodos = spliteado[2];
+    console.log("resultado de split de minombre: " + minombre);
+    console.log("resultado de split de apellidouno: " + apellidouno);
+    console.log("resultado de split de apellidodos: " + apellidodos);
+    alert(apellidodos);
+
+    //Split 2
+    cadena2 = "producto,$150,descipcion,stock";
+    var spliteado2 = cadena2.split(",");
+    var producto = spliteado2[0];
+    var precio = spliteado2[1];
+    var descripcion = spliteado2[2];
+    var stock = spliteado2[3];
+    console.log("resultado mi producto: " + producto);
+    console.log("resultado mi precio: " + precio);
+    console.log("resultado mi descripcion: " + descripcion);
+    console.log("resultado mi stock: " + stock);
+
+    //como se definen las variables
+    let calle = "calle 1234";
+    var calles = "calle 1, calle 2";
+    lascalles = "calle 1, calle 2, calle 3";
+    console.log("resultado mi calle: " + calle);
+    calle = "mi nueva calle 1234";
+    console.log("resultado mi calle: " + calle);
+    //constantes - una vez definida, no cambia
+    const miubicacion = "mi casa";
+    console.log("resultado mi constante: " + miubicacion);
+
+    //Bucles
+
+
+
+
+  </script>
+
+</body>
+
+</html>

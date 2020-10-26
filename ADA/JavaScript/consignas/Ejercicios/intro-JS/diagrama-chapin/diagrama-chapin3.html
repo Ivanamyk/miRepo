@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html class="no-js" lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- 
+        Escribe un programa  que almacene en un arreglo de registros las características de 150 personas: 
+        nombre, sexo, edad, peso, color de pelo, color de piel, color de ojos, nacionalidad y teléfono.
+    -->
+</head>
+
+<body>
+
+    <label> Nombre </label>
+    <input type="text" id=nombre>
+    <br>
+    <label> Sexo </label>
+    <input type="text" id=sexo>
+    <br>
+    <label> Edad </label>
+    <input type="text" id=edad>
+    <br>
+    <label> Color de pelo </label>
+    <input type="text" id=pelo>
+    <br>
+    <label> Color de piel </label>
+    <input type="text" id=piel>
+    <br>
+    <label> Color de ojos </label>
+    <input type="text" id=ojos>
+    <br>
+    <label> Nacionalidad </label>
+    <input type="text" id=nacionalidad>
+    <br>
+    <label> Telefono </label>
+    <input type="text" id=telefono>
+    <br>
+    <label> CONFRIMAR </label>
+    <button id="boton" onclick="agregarPersona()">Enviar</button>
+
+
+    <script>
+        // let arrayDatos = ["Nombre","Sexo","Edad","Pelo","Piel","Ojos","Nacionalidad","Telefono"]   
+        var arrayDatos = []
+
+        function agregarPersona() {
+            if (arrayDatos.length < 150) {
+
+                let persona = {}
+                persona["nombre"] = document.getElementById("nombre").value;
+                persona["sexo"] = document.getElementById("sexo").value;
+                persona["edad"] = document.getElementById("edad").value;
+                persona["pelo"] = document.getElementById("pelo").value;
+                persona["piel"] = document.getElementById("piel").value;
+                persona["ojos"] = document.getElementById("ojos").value;
+                persona["nacionalidad"] = document.getElementById("nacionalidad").value;
+                persona["telefono"] = document.getElementById("telefono").value;
+                arrayDatos.push(persona)
+            } else {
+                alert("no es posible agregar mas personas")
+            }
+
+            console.log(arrayDatos)
+
+        }
+    </script>
+
+</body>
+
+</html>

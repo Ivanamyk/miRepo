@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html class="no-js" lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- 
+        Escribir un programa que almacene en un arreglo de registros los nombres de los alumnos, 
+        sus notas parciales y finales. Calcular la nota promedio y mostrar un mensaje de APTO
+        si el alumno supera o iguala la calificación de 5 o NO APTO si no lo alcanza.
+        Hacerlo para un número de 5 alumnos.
+    -->
+</head>
+
+<body onload="guardarAlumno()">
+
+
+    <script>
+
+        function guardarAlumno() {
+            let listaAlumnos = [];
+
+            for (let i = 0; i < 1; i++) {
+
+                let datoAlumno = [];
+
+                let alumno = prompt('Ingrese Nombre del Alumno: ');
+                alumnoValido = validarDato(alumno)
+                let notaParcial = prompt('Ingrese Primera Nota: ');
+                let notaFinal = prompt('Ingrese Nota Final: ');
+                let sumaNotas = Number(notaParcial) + Number(notaFinal);
+                let promedio = (Math.round(sumaNotas / 2));
+
+                datoAlumno.push(alumno, notaParcial, notaFinal, promedio);
+                listaAlumnos.push(datoAlumno);
+                document.write('<u>Alumno</u>: ' + alumno + ', ' + '<u>Nota Parcial</u>: ' + notaParcial + ', ' + '<u>Nota Final</u>: ' + notaFinal + ', ' + '<u>Promedio</u>: ' + promedio + '<br>');
+
+
+                if (promedio >= 5) {
+                    alert('Apto! Su Resultado es: ' + promedio);
+                }
+                else {
+                    alert('No Apto. Su Resultado es: ' + promedio);
+                }
+
+            }
+
+        }
+
+        function validarDato(data) {
+
+            if (typeof data !== String) {
+                alert('ERROR')
+            }
+            console.log('data')
+        }
+
+
+    </script>
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
