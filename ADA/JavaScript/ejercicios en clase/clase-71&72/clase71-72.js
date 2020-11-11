@@ -1,5 +1,6 @@
 // ejer 14 - Mostrar en pantalla al/los personajes mas enanos de "Brastlewark".
 const personajes = getInhabitants();
+
 let min = personajes[0].height;
 for (const personaje of personajes) {
     if (personaje.height < min) {
@@ -55,7 +56,6 @@ const minimos = (prop) => {
         let valor = personajes[i][prop];
         if (valorMinimo > valor) {
             valorMinimo = valor;
-            personaje = personajes[i];
         }
     }
     return personaje;
@@ -70,7 +70,6 @@ const maximo = (prop) => {
         let valor = personajes[i][prop];
         if (valorMax < valor) {
             valorMax = valor;
-            personaje = personajes[i];
         }
     }
     return personaje;
@@ -90,6 +89,47 @@ for (i = 0; i < nombreAmigos.length; i++) {
 //console.table(amigos)
 
 // ejer 20 - Listar a todos los personajes que tengan como profesión "Woodcarver".
-
+const profesión = [];
+for (const personaje of personajes) {
+    if (personaje.professions[0] === "Woodcarver") {
+        profesión.push(personaje.name);
+    }
+}
+//console.log(profesión);
 
 // ejer 21 - Listar a todos los personajes que tengan como profesion un dato enviado como como parámetro.
+const byProfession = (profession) => {
+    const result = [];
+    for (const personaje of personajes) {
+        if (personaje.professions[0] === profession) {
+            result.push(personaje.name);
+        }
+    }
+    return result;
+}
+//console.log(byProfession("Tax inspector"));
+
+// ejer 22 - Crear una funcián que a partir de un string, devuelva todos los habitantes que contienen dicho string en su nombre.
+const stringFinder = (str) => {
+    const resultado = [];
+    for (const personaje of personajes) {
+        if (personaje.name.includes(str)) {
+            resultado.push(personaje.name)
+        }
+    }
+    return resultado;
+}
+//console.log(stringFinder('whistle'));
+
+// ejer 23 - Crear una función que devuelva un objeto con una propiedad con todas las profesiones que se desarrollan en "Brastlewark" y otra con la cantidad de profesiones encontradas.
+const allProfessionsInTown = () => {
+    const x = personajes.professions;
+    const result = [];
+    for (const personaje of personajes) {
+        if (personaje.professions[i] !== x) {
+            result.push(personaje.professions)
+        }
+    }
+    return result;
+}
+console.log(allProfessionsInTown());
