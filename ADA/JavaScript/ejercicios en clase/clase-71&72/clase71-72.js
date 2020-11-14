@@ -122,14 +122,35 @@ const stringFinder = (str) => {
 //console.log(stringFinder('whistle'));
 
 // ejer 23 - Crear una función que devuelva un objeto con una propiedad con todas las profesiones que se desarrollan en "Brastlewark" y otra con la cantidad de profesiones encontradas.
-const allProfessionsInTown = () => {
-    const x = personajes.professions;
-    const result = [];
+const byProfessions = () => {
+    const profesiones = [];
+    const cantidadProfesiones = {};
     for (const personaje of personajes) {
-        if (personaje.professions[i] !== x) {
-            result.push(personaje.professions)
+        for (profession of personaje.professions) {
+            if (!profesiones.includes(profession)) {
+                profesiones.push(profession);
+            }
         }
     }
-    return result;
+    cantidadProfesiones.profesiones = profesiones;
+    cantidadProfesiones.cantidad = profesiones.length;
+    return cantidadProfesiones;
 }
-console.log(allProfessionsInTown());
+//console.log(byProfessions());
+
+// ejer 24 - Crear una funcion que devuelva el habitante con mayor volumen de "Brastlewark". Calculamos el volumen multiplicando el alto por el ancho.
+const byVolume = () => {
+    let mayorVolumen = personajes[0];
+    for (const personaje of personajes) {
+        personaje.volumen = personaje.weight * personaje.height;
+    }
+    //personajes.length - 1 (la funcion compara un elemento con el que le sigue y en el ultimo no tiene con que comparar, entonces necesita cortar una vuelta antes, ya que al ultimo ya lo comparo en la vuelta anterior)
+    for (i = 0; i < personajes.length - 1; i++) {
+        //personajes[i+1] es mi comparador ('i' refiere al numero de vueltas y le sumo uno para comparar el siguiente)
+        if (personajes[i + 1].volumen > mayorVolumen.volumen) {
+            mayorVolumen = personajes[i + 1];
+        }
+    }
+    return mayorVolumen;
+}
+console.log(byVolume())
