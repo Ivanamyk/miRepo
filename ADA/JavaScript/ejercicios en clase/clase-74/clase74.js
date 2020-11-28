@@ -110,9 +110,7 @@ let pikachu = {
 //let pokemon = { pikachu, squirtle, charmander, bulbasaur };
 
 // 1 - Crear una función getMoves que tome como argumento un pokémon y devuelva la lista de movimientos
-const getMoves = ({ moves }) => {
-    return moves;
-}
+const getMoves = ({ moves }) => moves;
 //console.log(getMoves(squirtle));
 
 // 2 -Crear una función getPrimaryAbility que tome como argumento un pokémon y devuelva la habilidad primaria
@@ -120,15 +118,11 @@ const getPrimaryAbility = ({ ability: { primary } }) => primary;
 //console.log(getPrimaryAbility(charmander));
 
 // 3 -Crear una función getWeaknesses que tome como argumento un pokémon y devuelva la lista de tipos contra los que es débil
-const getWeaknesses = ({ modifiers: { weakness } }) => {
-    return weakness;
-}
+const getWeaknesses = ({ modifiers: { weakness } }) => weakness;
 //console.log(getWeaknesses(pikachu));
 
 // 4 - Crear una función getResistances que tome como argumento un pokémon y devuelva la lista de tipos contra los que es débil
-const getResistances = ({ modifiers: { resistances } }) => {
-    return resistances;
-}
+const getResistances = ({ modifiers: { resistances } }) => resistances;
 //console.log(getResistances(bulbasaur));
 
 // 5 - Crear una función resistsType que tome como argumentos un pokémon y un tipo y devuelva true si el pokémon es resistente a dicho tipo
@@ -141,12 +135,8 @@ const resistsType = ({ modifiers: { resistances } }, type) => {
 //console.log(resistsType(bulbasaur, 'fire'));
 
 // 6 - Crear una función resistsMove que tome como argumentos un pokémon y un movimiento y devuelva true si el pokémon es resistente a dicho ataque. El movimiento es un objeto que contiene nombre del mismo y tipo, p. ej.: { name: "Rain dance", type: "water" }
-
+const resistsMove = ({ modifiers: { resistances } }, { type }) => resistances.includes(type);
 //console.log(resistsMove(charmander, 'Scratch'));
-//solucion del profe
-const resistsMove = ({ modifiers: { resistances } }, { type }) => {
-    return resistances.includes(type);
-};
 
 // 7 - Crear una función isWeakAgainst que tome como argumento un objeto con dos propiedades, attacker y attacked, donde cada valor es un pokémon (p.ej. { attacker: pikachu, attacked: squirtle }) y devuelva true si el pokémon atacado es débil frente al tipo de pokémon que lo ataca
 const isWeakAgainst = ({ type }, { modifiers: { weakness } }) => {
