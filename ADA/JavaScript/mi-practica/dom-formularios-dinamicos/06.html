@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../assets/css/uikit.min.css" />
+    <script src="../../assets/js/uikit.min.js"></script>
+    <script src="../../assets/js/uikit-icons.min.js"></script>
+</head>
+
+<body>
+    <nav class="uk-navbar-container uk-margin-bottom" uk-navbar>
+        <div class="uk-navbar-left">
+            <ul class="uk-navbar-nav">
+                <li class="uk-active">
+                    <a href="../../index.html">
+                        <span uk-icon="arrow-left"></span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <main class="uk-container">
+        <h2>Conversor avanzado</h2>
+        <p>
+            Crear una página que:
+        <ul>
+            <li>
+                Tenga
+                <ul>
+                    <li>un input para ingresar el valor a convertir</li>
+                    <li>un select para seleccionar la unidad del valor convertido</li>
+                    <li>un select para seleccionar la unidad a convertir</li>
+                    <li>un botón que diga Intercambiar</li>
+                    <li>un texto que muestre el resultado</li>
+                </ul>
+            </li>
+            <li>
+                Cuyos selects tengan las siguientes opciones:
+                <ul>
+                    <li>Kilómetros (km)</li>
+                    <li>Metros (m)</li>
+                    <li>Decímetros (dm)</li>
+                    <li>Centímetros (cm)</li>
+                    <li>Milímetros (mm)</li>
+                </ul>
+            </li>
+            <li>
+                Ambos select comiencen con la opción metros seleccionada y el input comience con el valor 1.
+            </li>
+            <li>
+                Al seleccionar una nueva opción en cualquiera de los select o al modificar el valor del input, se
+                actualice el texto con el resultado de la conversión del valor ingresado de una unidad a la otra.
+            </li>
+            <li>
+                Al clickear el botón Intercambiar se intercambien las opciones de los selects y se actualice el texto.
+            </li>
+        </ul>
+        </p>
+
+        <h3>TIP</h3>
+
+        <p>
+            Para realizar este ejercicio, el value de cada option del select deben ser los siguiente:
+        </p>
+
+        <ul>
+            <li>
+                Para Kilómetros, el value debe ser 1000
+            </li>
+            <li>
+                Para Metros, el value debe ser 1
+            </li>
+            <li>
+                Para Decímetros, el value debe ser 0.1
+            </li>
+            <li>
+                Para Centímetros, el value debe ser 0.01
+            </li>
+        </ul>
+
+        <p>
+            Para Milímetros, el value debe ser 0.001
+            La conversión se realiza con la fórmula: VALOR_INGRESADO * VALOR_UNIDAD / VALOR_UNIDAD_A_CONVERTIR.</p>
+        </p>
+
+        <hr />
+
+        <!-- Acá va el desarrollo -->
+
+    </main>
+</body>
+
+</html>
