@@ -1,4 +1,4 @@
-//FETCH (trae datos de data base)
+//FETCH (trae datos de data base. dos parametros: url y )
 const url = "http://url-de-la-api.com";
 fetch(url + '/users')
     .then(response => {

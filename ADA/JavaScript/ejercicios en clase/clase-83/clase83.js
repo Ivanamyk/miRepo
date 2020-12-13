@@ -58,7 +58,7 @@ const createTable = (data, idTabla) => {
 }
 
 // Haciendo uso de las funciones anteriores, crear una tabla en pantalla que muestre los generos disponibles.
-fetch(`${base}/genre/movie/list?api_key=${apiKey}`)
+fetch(`${base}/genre/movie/li   st?api_key=${apiKey}`)
     .then(response => {
         return response.json();
     })
