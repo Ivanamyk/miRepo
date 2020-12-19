@@ -1,35 +1,33 @@
-
-const base = 'https://ada-project-c6176-default-rtdb.firebaseio.com';
-
 const init = () => {
-    //traigo la info de mi API con este Fetch
-    fetch(`${base}/users.json`)
+    fetch(`${base}users.json`)
         .then(response => response.json())
         .then(data => {
+            console.log(data);
             createTable(data);
         })
 };
 init();
-// const eliminar = (id) => {
-//     console.log("se elmino al id:", id)
-//     fetch(`${base}users/${id}.json`, {
-//         method: "DELETE"
-//     }).then((response) => {
-//         console.log(response);
-//         return response.json()
-//     }).then((data) => {
-//         console.log(data)
-//     }).then(init);
-// }
 
+const eliminar = (id) => {
+    console.log("se elmino al id:", id)
+    fetch(`${base}users/${id}.json`, {
+        method: "DELETE"
+    }).then((response) => {
+        console.log(response);
+        return response.json()
+    }).then((data) => {
+        console.log(data)
+    }).then(init);
+}
 
 const createTable = (data) => {
     const tbody = document.getElementById("tbody");
     tbody.innerHTML = "";
     for (let object in data) {
+
         const tr = document.createElement('tr');
+
         for (let item in data[object]) {
-            console.log(item);
             const td = document.createElement('td');
             td.innerHTML = data[object][item];
             tr.appendChild(td);
@@ -40,18 +38,20 @@ const createTable = (data) => {
             eliminar(object);
         });
         botonEliminar.innerText = 'Eliminar';
-        const td1 = document.createElement('td');
-        td1.appendChild(botonEliminar);
-        tr.appendChild(td1);
+        botonEliminar.setAttribute('class', 'btn btn-danger');
+        const tdElim = document.createElement('td');
+        tdElim.appendChild(botonEliminar);
+        tr.appendChild(tdElim);
 
-        // const botonEditar = document.createElement('button');
-        // botonEditar.addEventListener('click', () => {
-        //     eliminar(object);
-        // });
-        // botonEditar.innerText = 'Editar';
-        // const td = document.createElement('td');
-        // td.appendChild(botonEditar);
-        // tr.appendChild(td);
+        const botonEditar = document.createElement('button');
+        botonEditar.addEventListener('click', () => {
+            window.location = `form.html?name=${object}`;
+        });
+        botonEditar.innerText = 'Editar';
+        botonEditar.setAttribute('class', 'btn btn-warning');
+        const tdEdit = document.createElement('td');
+        tdEdit.appendChild(botonEditar);
+        tr.appendChild(tdEdit);
 
         tbody.appendChild(tr);
     }

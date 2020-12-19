@@ -1,18 +1,19 @@
 const base = 'https://ada-project-c6176-default-rtdb.firebaseio.com';
 
+const inputNombre = document.getElementById('name');
+const inputEspecie = document.getElementById('especie');
+const inputEdad = document.getElementById('edad');
+
 const addPet = (event) => {
     event.preventDefault();
-    const nombre = document.getElementById('name');
-    const raza = document.getElementById('breed');
-    const edad = document.getElementById('age');
 
     const pets = {
-        name: nombre.value,
-        breed: raza.value,
-        age: edad.value,
+        name: inputNombre.value,
+        breed: inputEspecie.value,
+        age: inputEdad.value,
     }
 
-    fetch(base + '/pets.json', {
+    fetch(base + 'pets.json', {
         method: 'POST',
         headers: {
             'Content-Type': 'Application/json'
@@ -28,6 +29,6 @@ const addPet = (event) => {
     })
 }
 
-const form = document.getElementById('agregarPet');
+const botonAgregar = document.getElementById('agregar');
 //cuando es un form se pone 'submit'
 form.addEventListener('submit', addPet)
