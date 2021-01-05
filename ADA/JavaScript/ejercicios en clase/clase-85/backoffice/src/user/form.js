@@ -37,7 +37,7 @@ const editarUsuario = (event) => {
         email: inputEmail.value,
         password: inputClave.value,
     }
-
+    //PATCH pasa un objeto parcial. El dato que yo quiero. Mientras que el PUT reemplaza el objeto completo.
     fetch(`${base}users/${id}.json`, {
         method: "PATCH",
         headers: {
