@@ -1,3 +1,5 @@
+const base = "https://ada-frontend-1d227-default-rtdb.firebaseio.com/"
+
 const init = () => {
     fetch(`${base}users.json`)
         .then(response => response.json())

@@ -1,0 +1,22 @@
+form {
+    display: flex;
+    flex-direction: column;
+    background-color: #c2c2c2;
+    margin: 20px 0;
+    padding: 20px;
+}
+
+form label {
+    margin-bottom: 10px;
+}
+
+form textarea {
+    max-height: 150px;
+    max-width: 200px;
+}
+
+form button {
+    width: 150px;
+    margin-top: 10px;
+    cursor:  pointer;
+}

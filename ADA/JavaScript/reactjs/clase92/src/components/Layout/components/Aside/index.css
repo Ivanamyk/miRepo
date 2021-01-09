@@ -1,0 +1,19 @@
+aside {
+    width: 30%;
+    background-color: rgb(9, 150, 126);
+    padding: 20px;
+}
+
+aside h6 {
+    font-size: 16px;
+    margin-top: 0;
+}
+
+aside ul {
+    padding: 0;
+}
+
+aside ul li {
+    list-style: none;
+    margin-bottom: 10px;
+}

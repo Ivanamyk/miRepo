@@ -1,0 +1,11 @@
+.contenedor {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: rgb(197, 248, 220);
+    margin-top: 0;
+}
+
+article {
+    padding: 20px;
+}
