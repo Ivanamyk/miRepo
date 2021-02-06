@@ -1,4 +1,4 @@
-const base = "https://ada-frontend-1d227-default-rtdb.firebaseio.com/";
+const base = "https://ada-project-c6176-default-rtdb.firebaseio.com/";
 
 //funcion init inicializa la carga de datos
 const init = () => {

@@ -1,7 +1,8 @@
-const base = "https://ada-frontend-1d227-default-rtdb.firebaseio.com/";
+const base = "https://ada-project-c6176-default-rtdb.firebaseio.com/";
 
 const url = new URL(window.location);
 const id = url.searchParams.get("pepe");
+console.log(id)
 
 const inputNombre = document.getElementById("name");
 const inputEspecie = document.getElementById("especie");
