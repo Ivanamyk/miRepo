@@ -1,10 +1,9 @@
 import React from 'react'
 
-export const Header = ({ titulo, handleOnClick }) => {
+export const Header = ({ titulo }) => {
     return (
-        <div className='header'>
+        <div className='header m-4'>
             <h1>{titulo}</h1>
-            <button onClick={handleOnClick}>Agregar</button>
         </div>
     )
 }

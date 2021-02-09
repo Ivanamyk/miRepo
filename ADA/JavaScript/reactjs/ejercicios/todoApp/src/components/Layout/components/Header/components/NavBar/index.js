@@ -54,7 +54,7 @@ const NavBar = () => {
             <li className="nav-item dropdown">
               <a
                 className="nav-link dropdown-toggle"
-                href="#"
+                href="!#"
                 id="navbarDropdown"
                 role="button"
                 data-bs-toggle="dropdown"
@@ -73,24 +73,24 @@ const NavBar = () => {
               </ul>
             </li>
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">
+              <a className="nav-link active" aria-current="page" href="!#">
                 <Bell />
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <a className="nav-link" href="!#">
                 <Grid3x3GapFill />
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <a className="nav-link" href="!#">
                 <Gear />
               </a>
             </li>
             <li className="nav-item dropdown">
               <a
                 className="nav-link dropdown-toggle d-flex align-items-center"
-                href="#"
+                href="!#"
                 id="navbarDropdown"
                 role="button"
                 data-bs-toggle="dropdown"
@@ -106,12 +106,12 @@ const NavBar = () => {
               </a>
               <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li>
-                  <a className="dropdown-item" href="#">
+                  <a className="dropdown-item" href="!#">
                     Action
                   </a>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="#">
+                  <a className="dropdown-item" href="!#">
                     Another action
                   </a>
                 </li>
@@ -119,7 +119,7 @@ const NavBar = () => {
                   <hr className="dropdown-divider" />
                 </li>
                 <li>
-                  <a className="dropdown-item" href="#">
+                  <a className="dropdown-item" href="!#">
                     Something else here
                   </a>
                 </li>
