@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://ada-frontend-e41ad-default-rtdb.firebaseio.com",
+  baseURL: "https://todo-70f99-default-rtdb.firebaseio.com",
 });
 
 export { api };
