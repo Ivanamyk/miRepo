@@ -1,9 +1,12 @@
 import React from 'react'
 
 const Footer = () => {
-    return(
-        <footer>Footer</footer>
+    return (
+        <>
+            <footer>Created by Ivana!</footer>
+        </>
     )
 }
 
-export {Footer}
+export { Footer }
+

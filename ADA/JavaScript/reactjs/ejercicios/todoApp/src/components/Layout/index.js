@@ -2,22 +2,22 @@ import React from "react";
 import { Header, Footer, Aside } from "./components";
 import "./styles.css";
 
-const Layout = (props) => {
-  const { children, hideHeader, hideAside, hideFooter } = props;
+const Layout = ({ children, hideHeader, hideAside, hideFooter }) => {
 
   return (
     <div className="layout">
-      {hideAside === false && <Aside />}
-
+      {!hideAside && <Aside />}
+      {/* //si el hideFooter es falso se muestra el footer. tiene que ser true para que no se muestre */}
       <div className="contenedor">
-        {hideHeader === false && <Header />}
+        {!hideHeader && <Header />}
         {children}
-        {hideFooter === false && <Footer />}
+        {!hideFooter && <Footer />}
       </div>
     </div>
   );
 };
 
+//seteo la propiedad de que se oculten las siguientes paginas
 Layout.defaultProps = {
   hideHeader: false,
   hideAside: false,

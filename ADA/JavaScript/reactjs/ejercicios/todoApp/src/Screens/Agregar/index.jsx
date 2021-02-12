@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Layout } from "../../components";
+import { Layout, Main } from "../../components";
 import { api } from "../../utils"
 
 export const AgregarTarea = () => {
@@ -27,34 +27,37 @@ export const AgregarTarea = () => {
     };
     return (
         <div>
-            <Layout>
-                <h1 className='m-4'>Agregar Tareas</h1>
-                <div className='container'>
-                    <form className="row gy-2 gx-3 align-items-center" onSubmit={handleOnSubmit}>
-                        <div className="col-auto">
-                            <label className="visually-hidden" for="autoSizingInput">Titulo</label>
-                            <input type="text" className="form-control" name="titulo" value={titulo} id="autoSizingInput" placeholder="Título" onChange={(e) => setTitulo(e.target.value)}></input>
-                        </div>
-                        <div className="col-auto">
-                            <label className="visually-hidden" for="autoSizingInput">Asignado</label>
-                            <input type="text" className="form-control" id="autoSizingInput" placeholder="Asignado" name="asignado" value={asignado} onChange={(e) => setAsignado(e.target.value)}></input>
-                        </div>
-                        <div className="col-auto">
-                            <label className="visually-hidden" for="autoSizingInputGroup">Fecha</label>
-                            <div className="input-group">
-                                <div className="input-group-text"></div>
-                                <input type="date" className="form-control text-secondary" id="autoSizingInputGroup" placeholder="Username" name="fecha" value={fecha} onChange={(e) => setFecha(e.target.value)}></input>
+            <Layout hideFooter={true}>
+                <Main titulo='Agregar Tareas'>
+                    <div className='container'>
+                        <form className="row gy-2 gx-3 bg-light" onSubmit={handleOnSubmit}>
+                            <div className="col-auto">
+                                <label className="visually-hidden" for="autoSizingInput">Titulo</label>
+                                <input type="text" className="form-control bg-white" name="titulo" value={titulo} id="autoSizingInput" placeholder="Título" onChange={(e) => setTitulo(e.target.value)}></input>
                             </div>
-                        </div>
-                        <div className="form-floating">
-                            <textarea className="form-control" placeholder="Escribir aquí" id="floatingTextarea2" style={{ height: '200px', width: '675px' }}></textarea>
-                            <label for="floatingTextarea2" className="text-secondary m-1 p-3" name="descripcion" value={descripcion} onChange={(e) => setDescripcion(e.target.value)}>Escriba aquí...</label>
-                        </div>
-                        <div className="col-auto">
-                            <button type="submit" className="btn btn-success mt-2">Agregar</button>
-                        </div>
-                    </form>
-                </div>
+                            <div className="col-auto">
+                                <label className="visually-hidden" for="autoSizingInput">Asignado</label>
+                                <input type="text" className="form-control bg-white" id="autoSizingInput" placeholder="Asignado" name="asignado" value={asignado} onChange={(e) => setAsignado(e.target.value)}></input>
+                            </div>
+                            <div className="col-auto">
+                                <label className="visually-hidden" for="autoSizingInputGroup">Fecha</label>
+                                <div className="input-group">
+                                    <div className="input-group-text"></div>
+                                    <input type="date" className="form-control bg-white text-secondary" id="autoSizingInputGroup" placeholder="Username" name="fecha" value={fecha} onChange={(e) => setFecha(e.target.value)}></input>
+                                </div>
+                            </div>
+                            <div className="form-floating">
+                                <textarea className="form-control bg-white" placeholder="Escribir aquí" id="floatingTextarea2" style={{ height: '200px', width: '675px' }}></textarea>
+                                <label for="floatingTextarea2" className="text-secondary m-1 p-3" name="descripcion" value={descripcion} onChange={(e) => setDescripcion(e.target.value)}>Escriba aquí...</label>
+                            </div>
+                            <div className="col-auto mt-2">
+                                <button type="submit" className="btn btn-secondary m-2">Cancelar</button>
+                                <button type="submit" className="btn btn-success">Agregar</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </Main>
             </Layout>
         </div >
     )
