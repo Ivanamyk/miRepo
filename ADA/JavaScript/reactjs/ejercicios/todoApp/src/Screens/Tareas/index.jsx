@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { api } from '../../utils'
 import { Layout, Main } from "../../components"
 import { objectToArray } from "../../helpers"
+import { Card } from './components'
+import './tarea.css'
 
 //le paso el valor de un array porque el objeto que en el cual voy a hacer el map es un array. antes de hacer el map
 //en linea 8 si no le paso el array vacio me va a tirar error de undefined, porque no se puede hacer map de undefinded (lo tengo que llenar con array)
@@ -26,30 +28,31 @@ export const Tareas = () => {
     }
     //uso udeEffect para evitar que se me recorra infinitas veces.
     useEffect(() => {
+        //meto la funcion dentro de useEffect
         traer();
     }, []);
 
     return (
         <Layout>
             <Main titulo='Mis Tareas'>
-                {tareas.map((tarea) => {
-                    return (
-                        <div className='container'>
-                            <div className="card text-dark bg-light mb-3" style={{ width: "18rem" }}>
-                                <div className="card-header bg-secondary text-light">{tarea.fecha}</div>
-                                <div className="card-body">
-                                    <h4 className="card-title mb-4"><b>{tarea.titulo}</b></h4>
-                                    <p className="card-text">Descripcion: {tarea.descripcion}</p>
-                                    <p className="card-text text-secondary">Asignado: {tarea.asignado}</p>
-                                </div>
-                            </div>
-                        </div>
-                    )
-                })
+                <div className='row'>
+                    {tareas.map(({ titulo, descripcion, asignado, fecha, status, id }) => {
+                        return (
+                            <Card
+                                titulo={titulo}
+                                descripcion={descripcion}
+                                asignado={asignado}
+                                fecha={fecha}
+                                status={status}
+                                id={id}
+                            />
+                        )
+                    })
 
-                }
-                <div>
-                    <button className='btn btn-info mt-2' onClick={handleOnClick}>Agregar Tarea</button>
+                    }
+                    <div>
+                        <button className='btn btn-dark mt-3' onClick={handleOnClick}>Agregar Tarea</button>
+                    </div>
                 </div>
             </Main>
         </Layout>

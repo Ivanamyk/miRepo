@@ -23,6 +23,7 @@ export const AgregarTarea = () => {
             fecha: fecha,
             descripcion: descripcion,
             asignado: asignado,
+            status: 'pending'
         });
     };
     return (
@@ -42,13 +43,12 @@ export const AgregarTarea = () => {
                             <div className="col-auto">
                                 <label className="visually-hidden" for="autoSizingInputGroup">Fecha</label>
                                 <div className="input-group">
-                                    <div className="input-group-text"></div>
                                     <input type="date" className="form-control bg-white text-secondary" id="autoSizingInputGroup" placeholder="Username" name="fecha" value={fecha} onChange={(e) => setFecha(e.target.value)}></input>
                                 </div>
                             </div>
                             <div className="form-floating">
-                                <textarea className="form-control bg-white" placeholder="Escribir aquí" id="floatingTextarea2" style={{ height: '200px', width: '675px' }}></textarea>
-                                <label for="floatingTextarea2" className="text-secondary m-1 p-3" name="descripcion" value={descripcion} onChange={(e) => setDescripcion(e.target.value)}>Escriba aquí...</label>
+                                <textarea className="form-control bg-white" placeholder="Escribir aquí" id="floatingTextarea2" name="descripcion" value={descripcion} onChange={(e) => setDescripcion(e.target.value)} style={{ height: '200px', width: '52%' }}></textarea>
+                                <label for="floatingTextarea2" className="text-secondary m-1 p-3" >Escriba aquí...</label>
                             </div>
                             <div className="col-auto mt-2">
                                 <button type="submit" className="btn btn-secondary m-2">Cancelar</button>
