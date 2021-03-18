@@ -1,9 +1,8 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { FC } from "react";
 import { Logo } from "./components";
 import "./styles.css";
 
-const Aside = () => {
+const Aside: FC = () => {
     return (
         <aside className="aside bg-dark">
             <Logo />
@@ -28,8 +27,8 @@ const Aside = () => {
                         data-bs-parent="#accordionMenu"
                     >
                         <div className="accordion-body">
-                            <Link to="/users">Ver</Link>
-                            <Link to="/">Agregar</Link>
+                            {/* <Link to="/users">Ver</Link>
+                            <Link to="/">Agregar</Link> */}
                         </div>
                     </div>
                 </div>
@@ -53,8 +52,8 @@ const Aside = () => {
                         data-bs-parent="#accordionMenu"
                     >
                         <div className="accordion-body">
-                            <Link to="/">Ver</Link>
-                            <Link to="/">Agregar</Link>
+                            {/* <Link to="/">Ver</Link>
+                            <Link to="/">Agregar</Link> */}
                         </div>
                     </div>
                 </div>
@@ -78,8 +77,8 @@ const Aside = () => {
                         data-bs-parent="#accordionMenu"
                     >
                         <div className="accordion-body">
-                            <Link to="/">General</Link>
-                            <Link to="/">Multimedia</Link>
+                            {/* <Link to="/">General</Link>
+                            <Link to="/">Multimedia</Link> */}
                         </div>
                     </div>
                 </div>

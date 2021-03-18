@@ -1,10 +1,9 @@
 import React, { FC } from "react";
-import { useHistory } from "react-router-dom";
-import avatar from "../../../../../../assets/img/avatar-1.jpg";
+// import { useHistory } from "react-router-dom";
 import menuItems from "./data";
 
 const NavBar: FC = () => {
-  const { goBack } = useHistory();
+  // const { goBack } = useHistory();
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light">
@@ -12,7 +11,7 @@ const NavBar: FC = () => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mb-2 mb-lg-0 me-3">
             <li>
-              <button className="btn" onClick={goBack}>
+              <button className="btn" >
               </button>
             </li>
           </ul>
@@ -88,7 +87,6 @@ const NavBar: FC = () => {
                 aria-expanded="false"
               >
                 <img
-                  src={avatar}
                   alt="user-avatar"
                   width="32"
                   className="rounded-circle ms-1 me-2"

@@ -1,7 +1,5 @@
 import React, { FC } from "react";
-import { Header } from "./Header";
-import { Aside } from "./Aside";
-import { Footer } from "./Footer";
+import { Header, Aside, Footer } from "./components";
 import "./styles.css";
 
 interface Props {

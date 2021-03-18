@@ -1,6 +1,5 @@
 import React, { FC } from "react";
 import { NavBar } from "./components";
-import "./styles.css";
 
 const Header: FC = () => {
   return (
