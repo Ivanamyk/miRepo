@@ -1,12 +1,26 @@
-import React from 'react'
+import React, { FC } from 'react';
+import { Link } from "react-router-dom";
+import "./footer.css";
 
-const Footer = () => {
+const Footer: FC = () => {
     return (
-        <>
-            <footer>Created by Ivana!</footer>
-        </>
+        <footer className="footer" id="Footer">
+            <div className="d-flex m-3">
+                <div className="text-start pt-2 w-100 ">
+                    <b> By IYK&nbsp;- {new Date().getFullYear()}</b>
+                </div>
+                <div className="flex-shrink-1 me-2">
+                    <Link className="size" to={"https://github.com/ivanamyk"}><i className="bi bi-github"></i></Link>
+                </div>
+                <div className="flex-shrink-1 me-2">
+                    <Link className="size" to={"www.linkedin.com/in/griseldadelio"}><i className="bi bi-linkedin"></i></Link>
+                </div>
+                <div className="flex-shrink-1 me-4">
+                    <Link className="size" to={"mailto:griseldadelio@gmail.com"}><i className="bi bi-envelope-fill"></i></Link>
+                </div>
+            </div>
+        </footer>
     )
 }
 
 export { Footer }
-

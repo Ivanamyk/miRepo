@@ -1,12 +1,14 @@
-import React from 'react';
-import { Layout } from './components'
+import React from 'react'
+import { AuthProvider } from "./contexts";
+import { AuthRoute } from './screens';
 
 const App = () => {
+
   return (
-    <>
-      <Layout ></Layout>
-    </>
-  );
-}
+    <AuthProvider>
+      <AuthRoute />
+    </AuthProvider>
+  )
+};
 
 export default App;
