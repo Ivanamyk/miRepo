@@ -4,7 +4,7 @@ import Logo from "../../../assets/img/logoIndex.png";
 import { useAuth } from '../../../hooks';
 import { Link } from "react-router-dom";
 
-const SingIn: FC = () => {
+const Signin: FC = () => {
     const [fullName, setFullName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -34,4 +34,4 @@ const SingIn: FC = () => {
     );
 };
 
-export { SingIn };
+export { Signin };

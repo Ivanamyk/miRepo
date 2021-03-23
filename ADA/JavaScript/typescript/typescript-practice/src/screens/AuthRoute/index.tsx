@@ -9,9 +9,8 @@ const AuthRoute = () => {
     return (
         <div>
             {/* { isAuthenticated ? <Private /> : <Public />} */}
-            <Private />
+            <Public />
         </div>
     );
 }
-
 export { AuthRoute };

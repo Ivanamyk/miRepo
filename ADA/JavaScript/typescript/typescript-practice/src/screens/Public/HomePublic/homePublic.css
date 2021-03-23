@@ -1,0 +1,62 @@
+.mainSize{
+    min-height:  750px;
+}
+.bg-home {
+    background: url(../../../assets/img/todo-bg.png) center;
+    background-size: cover;
+    min-height: 800px;
+    opacity: 0.7;
+}
+.logoIndex{
+    width: 150px;
+    position: fixed;
+    margin-top: 15px;
+    right: 10.3rem;
+    padding: 10px;   
+}
+.title-home{
+    font-family: 'Playfair Display', serif;
+    font-size: 1.50rem;
+    position: fixed;
+    right: 12.3rem;
+    top: 8.70rem;
+}
+#sign-home{
+    color:rgb(6, 46, 49);
+    font-size: 2.2rem;
+    font-weight: bold;
+    position: relative;
+    left: 10.9rem;
+    top: 14.70rem;
+}
+#sign-home:hover{
+    color:rgb(53, 134, 101);
+    text-decoration: underline;
+}
+.sign-home {
+    background-color:rgba(255, 251, 251, 0.911);
+    border-radius: 5%;
+    margin-top: 100px;
+    z-index: -1;
+    width: 500px;
+    height: 520px;
+
+    animation: moveUp 0.8s ease-in-out;
+      transition: top 0.5s;
+      -webkit-animation: moveDown 1s infinite  alternate;
+    animation: moveDown 1s infinite  alternate;
+}
+ 
+    @keyframes moveUp {
+      from {
+        transform: translateY(8rem); 
+      }
+      to {
+        transform: translateY(-10rem); 
+      }
+    } 
+
+    @keyframes moveDown {
+        0% { transform: translateY(0); }
+        100% { transform: translateY(-10px); }
+    }
