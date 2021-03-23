@@ -1,6 +1,6 @@
 import React, { FC, FormEvent, useState } from "react";
 import { Layout, Main } from "../../../components";
-import Logo from "../../../assets/img/joinUs.jpg";
+import Logo from "../../../assets/img/logoIndex.png";
 import { useAuth } from '../../../hooks';
 import { Link } from "react-router-dom";
 
