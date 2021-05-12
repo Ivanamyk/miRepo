@@ -88,8 +88,7 @@ const sueldoPromedioPorSeniority = (seniority) => {
 
 // /*8. `buscarEmpleades`, que tome por parámetros area, puesto y seniority, y devuelva un array con les empleades que pertenezcan a dicha area, puesto y seniority 
 const buscarEmpleades = (area, puesto, seniority) => {
-    const filtro = empleades.filter((empleade) => empleade.area === area && empleade.puesto === puesto && empleade.seniority === seniority)
-    return filtro;
+    return empleades.filter((empleade) => empleade.area === area && empleade.puesto === puesto && empleade.seniority === seniority)
 }
 // console.log(buscarEmpleades("QA", "Data analyst"e, "Junior"));
 
