@@ -1,0 +1,26 @@
+//utilities classes
+.container{
+    max-width: 1100px;
+    padding: 0 30px;
+    margin: 0 auto;
+    overflow: auto;
+}
+
+//margin y padding classes
+$space-amount:(1,2,3,4,5);
+
+@each $space in $space-amount{
+    //para llamar la unidad a la que estoy iterando pongo #{}
+    .m-#{$space} {
+        margin: #{$space}rem;
+    }
+    .my-#{$space} {
+        margin: #{$space}rem 0;
+    }
+    .p-#{$space} {
+        padding: #{$space}rem;
+    }
+    .py-#{$space} {
+        padding: #{$space}rem 0;
+    }
+}

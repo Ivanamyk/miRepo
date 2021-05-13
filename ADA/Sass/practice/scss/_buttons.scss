@@ -1,0 +1,24 @@
+//% significa que lo voy a compartir con varios botones a la vez.
+%btn{
+    display: inline-block;
+    border-radius: 5px;
+    padding: 8px 20px;
+    margin: 3px;
+
+    //el apercen reemplaza el nombre original
+    &:hover{
+        transform: scale(.98);
+    }
+}
+
+.btn-primary{
+    //con este extend puedo compartir las propiedades puestas en el %
+    @extend %btn;
+    // se puede aclarar (lighten) o oscurecer (darken) envolciendo en parentesis el color y al lado pongo el porcentaje que quiero.
+    @include  set-bg(lighten($primary-color, 10%));
+}
+
+.btn-secondary{
+    @extend %btn;
+    @include  set-bg($secondary-color);
+}

@@ -1,0 +1,24 @@
+//cuando creo 2 o mas archivos de Sass se van a compilar juntos en mi mani archivo CSS. Puedo crear varios si uso el _(underscore) ya que de esta manera le digo que no se tiene que compilar solo, que es parte de otra cosa.
+
+//config guarda variables, funciones y mixins cosas fuera del css regular.
+
+//las variables en Sass empiezan con $
+$light-color: #f4f4f4;
+$primary-color: #0e6cff;
+$secondary-color: #ff8700;
+
+//set text color based on BG
+@function set-text-color($color){
+    @if(lightness($color) > 70){
+        @return #333;
+    }@else{
+       @return #fff;
+    }
+}
+
+//set BG and text color (un mixin)
+@mixin set-bg($color){
+background-color: $color;
+color: set-text-color($color);
+}
+
